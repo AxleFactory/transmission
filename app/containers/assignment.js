@@ -98,7 +98,8 @@ class Assignment extends React.Component {
 
 const styles = StyleSheet.create({
   heading: {
-    paddingHorizontal: StyleRules.ScreenPadding
+    paddingHorizontal: StyleRules.ScreenPadding,
+    marginTop: 10
   },
   title: {
     fontSize: StyleRules.FontSize.Large,
