@@ -31,7 +31,7 @@
       "expires":"2017-01-01T05:00:00.000Z",
       "description":"Inform voters in California",
       "instructions":"Call first, then send a text!",
-      "requireCallFirst":true,
+      "requireCallFirst":false,
       "callActions":[
          {
             "id":9,
@@ -51,5 +51,45 @@
             "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: https://vote.berniesanders.com/CA"
          }
       ]
+   },{
+      "id":3,
+      "name":"Spread the Word",
+      "expires":"2017-01-01T05:00:00.000Z",
+      "description":"This is important.",
+      "instructions":"Send as many texts as you can!",
+      "requireCallFirst":false,
+      "callActions":[],
+      "textActions":[
+         {
+            "id":13,
+            "name":"Check your party affiliation",
+            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie!"
+         },
+         {
+            "id":12,
+            "name":"Here's the link",
+            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: https://vote.berniesanders.com/CA"
+         }
+      ]
+   },{
+      "id":4,
+      "name":"Call your Friends",
+      "expires":"2017-01-01T05:00:00.000Z",
+      "description":"This is important.",
+      "instructions":"Call as many friends as you can!",
+      "requireCallFirst":false,
+      "callActions":[
+         {
+            "id":10,
+            "name":"Are you registered?",
+            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Have you registered to vote?"
+         },
+         {
+            "id":11,
+            "name":"Have you voted?",
+            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Have you voted today?"
+         }
+      ],
+      "textActions":[]
    }
 ]
