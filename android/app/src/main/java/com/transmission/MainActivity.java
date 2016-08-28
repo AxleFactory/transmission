@@ -7,7 +7,21 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.List;
 
+// Custom Imports
+import android.os.Bundle;
+import com.rt2zz.reactnativecontacts.ReactNativeContacts; 
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+import io.fabric.sdk.android.Fabric;
+
 public class MainActivity extends ReactActivity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Fabric.with(this, new Crashlytics(), new Answers());
+    }
 
     /**
      * Returns the name of the main component registered from JavaScript.
@@ -34,7 +48,10 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+            new MainReactPackage(),
+            new NativePackages(this),
+            new ReactNativeContacts(),
+            new VectorIconsPackage()
         );
     }
 }
