@@ -1,6 +1,6 @@
-import React, {
+import React, { PropTypes } from 'react';
+import {
   ListView,
-  PropTypes,
   StyleSheet,
   Text,
   View

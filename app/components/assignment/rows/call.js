@@ -1,4 +1,4 @@
-import React from 'react-native';
+import React from 'react';
 import AssignmentRow from './row';
 import I18n from '../../../localization';
 

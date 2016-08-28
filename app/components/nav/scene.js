@@ -1,5 +1,5 @@
-import React from 'react-native';
-import Route, {PropTypes} from 'react-native';
+import React, {PropTypes} from 'react';
+import Route from 'react-native';
 import {Actions, Scene} from 'react-native-router-flux';
 import NavLogo from './logo';
 import NavIcon from './icon';
