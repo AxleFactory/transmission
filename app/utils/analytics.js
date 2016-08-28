@@ -8,25 +8,25 @@ const {AnswersModule} = NativeModules;
  * display them in a graph, rather than a table
  */
 export function logEvent (name, customAttributes = null) {
-  AnswersModule.logEvent(name, customAttributes);
+  // AnswersModule.logEvent(name, customAttributes);
 }
 
 export function logAssignment (id) {
-  logEvent(AnalyticsEvents.SELECT_ASSIGNMENT, {
-    'Assignment ID': String(id)
-  });
+  // logEvent(AnalyticsEvents.SELECT_ASSIGNMENT, {
+  //   'Assignment ID': String(id)
+  // });
 }
 
 export function logTextAction (assignmentId, actionId) {
-  logEvent(AnalyticsEvents.TEXT_CONTACT, {
-    'Assignment ID': String(assignmentId),
-    'Text Action ID': String(actionId)
-  });
+  // logEvent(AnalyticsEvents.TEXT_CONTACT, {
+  //   'Assignment ID': String(assignmentId),
+  //   'Text Action ID': String(actionId)
+  // });
 }
 
 export function logCallAction (assignmentId, actionId) {
-  logEvent(AnalyticsEvents.CALL_CONTACT, {
-    'Assignment ID': String(assignmentId),
-    'Call Action ID': String(actionId)
-  });
+  // logEvent(AnalyticsEvents.CALL_CONTACT, {
+  //   'Assignment ID': String(assignmentId),
+  //   'Call Action ID': String(actionId)
+  // });
 }

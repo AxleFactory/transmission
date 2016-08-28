@@ -93,6 +93,7 @@ android {
     buildTypes {
         debug {
             manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY]
+            ext.enableCrashlytics = false
         }
         release {
             manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY]
