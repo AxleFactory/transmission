@@ -24,6 +24,7 @@ project.xcworkspace
 
 # Android/IJ
 #
+*.iml
 .idea
 .gradle
 local.properties
@@ -43,4 +44,3 @@ android/keystores/debug.keystore
 fabric.properties
 crashlytics-build.properties
 com_crashlytics_export_strings.xml
-

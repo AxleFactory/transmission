@@ -1,4 +1,4 @@
-package com.berniesanders.messenger;
+package com.transmission;
 
 import android.app.Activity;
 import android.content.Intent;

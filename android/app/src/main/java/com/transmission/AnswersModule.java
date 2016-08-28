@@ -1,4 +1,4 @@
-package com.berniesanders.messenger;
+package com.transmission;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
