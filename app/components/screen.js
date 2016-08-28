@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import {
+  Platform,
   StyleSheet,
   View
 } from 'react-native';
@@ -24,7 +25,14 @@ Screen.propTypes = {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    paddingTop: 50,
+    ...Platform.select({
+      ios: {
+        paddingTop: 63,
+      },
+      android: {
+        paddingTop: 53,
+      },
+    }),
     backgroundColor: Colors.White
   }
 });

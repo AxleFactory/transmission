@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View,
+  Platform,
   Image,
   StyleSheet
 } from 'react-native';
@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
   logo: {
     height: 40,
     width: 80,
+    ...Platform.select({
+      ios: {
+        marginTop: 15,
+      }
+    }),
     alignSelf: 'center'
   }
 });
