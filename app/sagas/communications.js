@@ -4,14 +4,13 @@ import {call, fork, select} from 'redux-saga/effects';
 import {contactSelector, assignmentSelector} from '../selectors/assignment';
 import * as Analytics from '../utils/analytics';
 import * as Types from '../actions/types';
-
-const {CommunicationsModule} = NativeModules;
+import Communications from 'react-native-communications';
 
 export function* callContact ({callAction}) {
   var contact = yield select(contactSelector);
   var assignment = yield select(assignmentSelector);
   yield call(Analytics.logCallAction, assignment.id, callAction);
-  yield call(CommunicationsModule.createPhoneCall, contact.phoneNumber);
+  yield Communications.phonecall(String(contact.phoneNumber), false);
 }
 
 export function* textContact ({textAction}) {
@@ -21,7 +20,7 @@ export function* textContact ({textAction}) {
   var textActionMatch = textActions.filter(text => text.id === textAction);
   var message = textActionMatch.length > 0 ? textActionMatch[0].messageContent : textActions[0].messageContent;
   yield call(Analytics.logTextAction, assignment.id, textAction);
-  yield call(CommunicationsModule.createSMSMessage, contact.phoneNumber, message);
+  yield Communications.text(String(contact.phoneNumber), message);
 }
 
 export function* watchCallContact () {
