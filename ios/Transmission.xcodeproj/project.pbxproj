@@ -815,6 +815,7 @@
 					"$(SRCROOT)/../node_modules/react-native-branch/ios",
 				);
 				INFOPLIST_FILE = Transmission/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -840,6 +841,7 @@
 					"$(SRCROOT)/../node_modules/react-native-branch/ios",
 				);
 				INFOPLIST_FILE = Transmission/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
