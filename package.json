@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint --config .eslintrc app/**/*.js index.android.js",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "android": "adb reverse tcp:8081 tcp:8081 | react-native run-android",
+    "ios": "react-native run-ios"
   },
   "dependencies": {
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc11.tar.gz",
