@@ -141,11 +141,11 @@ android {
     }
     buildTypes {
         debug {
-            manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY]
+            manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY, branchApiKey: TRANSMISSION_BRANCH_API_KEY]
             ext.enableCrashlytics = false
         }
         release {
-            manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY]
+            manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY, branchApiKey: TRANSMISSION_BRANCH_API_KEY]
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
