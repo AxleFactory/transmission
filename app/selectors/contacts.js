@@ -12,9 +12,9 @@ const contactsSelector = createSelector(
     .map(contactId => transformContactEntity(contactEntities[contactId]))
     // flatten the collection into contacts-by-number
     .reduce((contacts, contact) => {
-      var byNumber = contact.phoneNumbers.map(({number}) => ({
+      var byNumber = contact.phoneNumbers.map(({formattedNumber}) => ({
         ...contact,
-        phoneNumber: number
+        phoneNumber: formattedNumber
       }));
       return contacts.concat(byNumber);
     }, [])

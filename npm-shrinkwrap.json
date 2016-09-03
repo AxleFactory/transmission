@@ -1783,6 +1783,11 @@
       "from": "glogg@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/glogg/-/glogg-1.0.0.tgz"
     },
+    "google-libphonenumber": {
+      "version": "1.1.0",
+      "from": "google-libphonenumber@latest",
+      "resolved": "https://registry.npmjs.org/google-libphonenumber/-/google-libphonenumber-1.1.0.tgz"
+    },
     "got": {
       "version": "5.6.0",
       "from": "got@>=5.0.0 <6.0.0",

@@ -10,6 +10,7 @@
     "ios": "react-native run-ios"
   },
   "dependencies": {
+    "google-libphonenumber": "^1.1.0",
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc11.tar.gz",
     "lodash": "^4.11.2",
     "moment": "^2.13.0",

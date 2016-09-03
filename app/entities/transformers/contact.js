@@ -1,3 +1,6 @@
+import {PhoneNumberUtil} from 'google-libphonenumber';
+const phoneUtil = PhoneNumberUtil.getInstance();
+
 export function transformContactEntity (contact) {
   return {
     id: contact.recordID,
@@ -10,8 +13,16 @@ export function transformContactEntity (contact) {
 }
 
 function cleanPhoneNumber (phoneNumberEntry) {
+  let formattedNumber = null;
+
+  try {
+    const phoneNumber = phoneUtil.parse(phoneNumberEntry.number, 'US');
+    formattedNumber = phoneUtil.format(phoneNumber, 'US');
+  } catch (e) {
+    formattedNumber = phoneNumberEntry.number.replace(/[^0-9.]/g, '');
+  }
   return {
     ...phoneNumberEntry,
-    raw: phoneNumberEntry.number.replace(/[^0-9.]/g, '')
+    formattedNumber
   };
 }
