@@ -18,8 +18,15 @@ Transmission helps you communicate official calls to action from your organizati
   ```
 
 3. Run the project
+ 
+  To run in iOS emulator
   ```
-  react-native run-android
+  npm run ios
+  ```
+  
+  To run on Android device (plugged in via USB and with USB debugging enabled)
+  ```
+  npm run android
   ```
 
 ## Building and signing for app store releases
