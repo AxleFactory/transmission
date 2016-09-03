@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import {
-  BackAndroid,
   StyleSheet
 } from 'react-native';
 import {Actions, Router, Reducer} from 'react-native-router-flux';
