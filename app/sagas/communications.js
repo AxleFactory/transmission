@@ -12,10 +12,11 @@ export function* callContact ({callAction}) {
   var contact = yield select(contactSelector);
   var assignment = yield select(assignmentSelector);
   yield call(Analytics.logCallAction, assignment.id, callAction);
-  if (Platform.OS === 'ios')
+  if (Platform.OS === 'ios') {
     yield Communications.phonecall(String(contact.phoneNumber), false);
-  else
+  } else {
     yield call(CommunicationsModule.createPhoneCall, contact.phoneNumber);
+  }
 }
 
 export function* textContact ({textAction}) {
@@ -25,10 +26,11 @@ export function* textContact ({textAction}) {
   var textActionMatch = textActions.filter(text => text.id === textAction);
   var message = textActionMatch.length > 0 ? textActionMatch[0].messageContent : textActions[0].messageContent;
   yield call(Analytics.logTextAction, assignment.id, textAction);
-  if (Platform.OS === 'ios')
+  if (Platform.OS === 'ios') {
     yield Communications.text(String(contact.phoneNumber), message);
-  else
+  } else {
     yield call(CommunicationsModule.createSMSMessage, contact.phoneNumber, message);
+  }
 }
 
 export function* watchCallContact () {
