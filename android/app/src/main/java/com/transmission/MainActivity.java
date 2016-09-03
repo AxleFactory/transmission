@@ -20,7 +20,7 @@ public class MainActivity extends ReactActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Fabric.with(this, new Crashlytics(), new Answers());
+        Fabric.with(this, new Crashlytics(), new Answers());
     }
 
     /**
