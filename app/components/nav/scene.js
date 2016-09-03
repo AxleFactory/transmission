@@ -1,6 +1,5 @@
-import React, {PropTypes} from 'react';
-import Route from 'react-native';
-import {Actions, Scene} from 'react-native-router-flux';
+import React from 'react';
+import { Actions } from 'react-native-router-flux';
 import NavLogo from './logo';
 import NavIcon from './icon';
 
@@ -19,11 +18,7 @@ export default class CustomScene extends React.Component {
         />
       );
     },
-    renderTitle () {
-      return <NavLogo />
-    }
+    renderTitle: () => <NavLogo />
   };
-  render () {
-    return null;
-  }
+  render = () => null
 }
