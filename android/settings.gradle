@@ -1,7 +1,8 @@
 rootProject.name = 'Transmission'
 
-include ':app'
+include ':react-native-branch', ':app'
 include ':react-native-contacts'
 include ':react-native-vector-icons'
+project(':react-native-branch').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-branch/android')
 project(':react-native-contacts').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-contacts/android')
 project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')

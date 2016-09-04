@@ -1,6 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.transmission">
 
+    <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
+        <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+        </intent-filter>
+    </receiver>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -27,14 +33,25 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTask"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <data android:scheme="axlefactorytransmission" android:host="open" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+                <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="${fabricApiKey}" />
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="${branchApiKey}" />
     </application>
 
 </manifest>

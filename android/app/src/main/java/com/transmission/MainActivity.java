@@ -14,6 +14,8 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
 import io.fabric.sdk.android.Fabric;
+import io.branch.rnbranch.*;
+import android.content.Intent;
 
 public class MainActivity extends ReactActivity {
 
@@ -30,6 +32,27 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "Transmission";
+    }
+
+    /**
+     * Override onStart, onStop, onNewIntent
+     * https://github.com/BranchMetrics/react-native-branch-deep-linking/blob/master/docs/setup.md
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        RNBranchModule.initSession(this.getIntent().getData(), this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        RNBranchModule.onStop();
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        this.setIntent(intent);
     }
 
     /**
@@ -51,7 +74,8 @@ public class MainActivity extends ReactActivity {
             new MainReactPackage(),
             new NativePackages(this),
             new ReactNativeContacts(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new RNBranchPackage()
         );
     }
 }
