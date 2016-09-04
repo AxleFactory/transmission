@@ -69,7 +69,7 @@ class ContactSelector extends React.Component {
           cell={Cell}
           cellHeight={50}
           onCellSelect={contact => this.selectContact(contact)}
-          sectionListItem={PagerItem}
+          sectionListStyle={styles.sectionPagerText}
           sectionHeader={SectionHeader}
           sectionHeaderHeight={10}
         />
@@ -90,19 +90,6 @@ function SectionHeader ({title}) {
 }
 
 SectionHeader.propTypes = {
-  title: PropTypes.string
-};
-
-/**
- * The letter component for the side-pager
- */
-function PagerItem ({title}) {
-  return (
-    <Text style={styles.sectionPagerText}>{title}</Text>
-  );
-}
-
-PagerItem.propTypes = {
   title: PropTypes.string
 };
 
@@ -132,7 +119,7 @@ const styles = StyleSheet.create({
     color: Colors.White
   },
   sectionPagerText: {
-    color: Colors.Blue.Light
+    width: 50
   }
 });
 
