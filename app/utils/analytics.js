@@ -9,6 +9,8 @@ import branch from 'react-native-branch';
  */
 export function logEvent (name, customAttributes = null) {
   Answers.logCustom(name, customAttributes);
+  console.log(name);
+  console.log(Answers);
 }
 
 export function logContentView (...args) {
