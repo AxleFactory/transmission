@@ -12,7 +12,7 @@
   "dependencies": {
     "google-libphonenumber": "^1.1.0",
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc11.tar.gz",
-    "lodash": "^4.11.2",
+    "lodash": "^4.15.0",
     "moment": "^2.13.0",
     "normalizr": "^2.0.1",
     "react": "^15.3.1",

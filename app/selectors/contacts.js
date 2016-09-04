@@ -1,24 +1,27 @@
 import {createSelector} from 'reselect';
 import {transformContactEntity} from '../entities/transformers/contact';
 import {LETTERS} from '../constants/letters';
+import {uniqBy} from 'lodash/array';
 
 const contactEntitiesSelector = state => state.entities.contact;
 
 const contactsSelector = createSelector(
   contactEntitiesSelector,
   (contactEntities) => {
-    return Object.keys(contactEntities)
+    let result = Object.keys(contactEntities)
     // map the collection of entities into transformed contact objects
     .map(contactId => transformContactEntity(contactEntities[contactId]))
     // flatten the collection into contacts-by-number
     .reduce((contacts, contact) => {
-      var byNumber = contact.phoneNumbers.map(({label, formattedNumber}) => ({
+      const byNumber = contact.phoneNumbers.map(({label, formattedNumber}) => ({
         ...contact,
         label,
         phoneNumber: formattedNumber
       }));
       return contacts.concat(byNumber);
-    }, [])
+    }, []);
+    // Remove duplicate phone numbers
+    result = uniqBy(result, 'phoneNumber')
     // sort the collection by name
     .sort((a, b) => {
       if (a.firstName > b.firstName) {
@@ -37,8 +40,7 @@ const contactsSelector = createSelector(
     })
     // transform the collection into a letter map
     .reduce((contactsByName, contact) => {
-      var letter = contact.fullName.charAt(0);
-      var contactsAtLetter;
+      let letter = contact.fullName.charAt(0);
       if (letter) {
         letter = letter.toUpperCase();
       }
@@ -47,13 +49,15 @@ const contactsSelector = createSelector(
         letter = '#';
       }
 
-      contactsAtLetter = contactsByName[letter] || [];
+      const contactsAtLetter = contactsByName[letter] || [];
 
       return {
         ...contactsByName,
         [letter]: [...contactsAtLetter, contact]
       };
     }, {});
+
+    return result;
   }
 );
 
