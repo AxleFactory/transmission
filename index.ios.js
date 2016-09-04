@@ -10,7 +10,7 @@ import App from './app/containers/app';
 console.ignoredYellowBox = [
   // eslint-disable-next-line
   'Warning: You are manually calling a React.PropTypes validation',
-  'Warning: In next release empty section headers will be rendered. In this release you can use \'enableEmptySections\' flag to render empty section headers.'
+  'Warning: In next release empty section headers will be rendered.'
 ];
 
 AppRegistry.registerComponent('Transmission', () => App);
