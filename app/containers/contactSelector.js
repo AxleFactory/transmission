@@ -65,6 +65,12 @@ class ContactSelector extends React.Component {
     return (
       <Screen>
         <AlphabetListView
+          initialListSize={
+            // Set this to the total number of list items so that all can be rendered at once
+            Object.keys(this.state.letterMap)
+            .map((key) => this.state.letterMap[key].length)
+            .reduce((prev, curr) => prev + curr)
+          }
           data={this.state.letterMap}
           cell={Cell}
           cellHeight={50}
