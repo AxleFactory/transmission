@@ -5,4 +5,5 @@ target 'Transmission' do
 	pod 'Fabric'
 	pod 'Crashlytics'
 	pod 'Answers'
+	pod 'Branch'
 end

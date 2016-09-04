@@ -1,5 +1,6 @@
 import * as AnalyticsEvents from '../constants/analytics';
-import {Answers, Crashlytics} from 'react-native-fabric';
+import {Answers} from 'react-native-fabric';
+import branch from 'react-native-branch';
 
 /**
  * Logs an event to Answers.
@@ -22,6 +23,7 @@ export function logAssignment (id) {
 }
 
 export function logTextAction (assignmentId, actionId) {
+  branch.userCompletedAction(AnalyticsEvents.TEXT_CONTACT);
   logEvent(AnalyticsEvents.TEXT_CONTACT, {
     'Assignment ID': String(assignmentId),
     'Text Action ID': String(actionId)
@@ -29,6 +31,7 @@ export function logTextAction (assignmentId, actionId) {
 }
 
 export function logCallAction (assignmentId, actionId) {
+  branch.userCompletedAction(AnalyticsEvents.CALL_CONTACT);
   logEvent(AnalyticsEvents.CALL_CONTACT, {
     'Assignment ID': String(assignmentId),
     'Call Action ID': String(actionId)
