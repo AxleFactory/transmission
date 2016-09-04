@@ -26,7 +26,6 @@ public class NativePackages implements ReactPackage {
     public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new CommunicationsModule(reactApplicationContext, activity));
-        modules.add(new AnswersModule(reactApplicationContext));
         return modules;
     }
 

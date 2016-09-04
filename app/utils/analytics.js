@@ -1,6 +1,5 @@
-import {NativeModules} from 'react-native';
 import * as AnalyticsEvents from '../constants/analytics';
-const {AnswersModule} = NativeModules;
+import {Answers} from 'react-native-fabric';
 
 /**
  * Logs an event to Answers.
@@ -8,7 +7,7 @@ const {AnswersModule} = NativeModules;
  * display them in a graph, rather than a table
  */
 export function logEvent (name, customAttributes = null) {
-  AnswersModule.logEvent(name, customAttributes);
+  Answers.logCustom(name, customAttributes);
 }
 
 export function logAssignment (id) {
