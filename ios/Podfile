@@ -2,5 +2,7 @@
 platform :ios, '8.0'
 
 target 'Transmission' do
-  pod 'Branch'
+	pod 'Fabric'
+	pod 'Crashlytics'
+	pod 'Branch'
 end

@@ -142,7 +142,6 @@ android {
     buildTypes {
         debug {
             manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY, branchApiKey: TRANSMISSION_BRANCH_API_KEY]
-            ext.enableCrashlytics = false
         }
         release {
             manifestPlaceholders = [fabricApiKey: BERNIE_MESSENGER_ANDROID_FABRIC_API_KEY, branchApiKey: TRANSMISSION_BRANCH_API_KEY]
@@ -171,6 +170,7 @@ afterEvaluate {
 }
 
 dependencies {
+    compile project(':react-native-fabric')
     compile project(':react-native-contacts')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])

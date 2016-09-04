@@ -4,13 +4,20 @@ PODS:
     - Branch/without-IDFA (= 0.12.6)
   - Branch/Core (0.12.6)
   - Branch/without-IDFA (0.12.6)
+  - Crashlytics (3.8.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.8)
 
 DEPENDENCIES:
   - Branch
+  - Crashlytics
+  - Fabric
 
 SPEC CHECKSUMS:
   Branch: 4c28f0844fe0dcd2535654a862b52a21ebde6386
+  Crashlytics: 8601d9c74a4c4d28f3e7f408bf4c0e490c70e8b4
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
 
-PODFILE CHECKSUM: 67ef6272f0b5eaa97265b5ac639eb621f2945d37
+PODFILE CHECKSUM: 56c7ebdf89f30fa85632fe42af1f3295d8f09a84
 
 COCOAPODS: 1.0.0

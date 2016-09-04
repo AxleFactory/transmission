@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "eslint --config .eslintrc app/**/*.js index.android.js",
+    "lint": "eslint --config .eslintrc app/**/*.js index.*.js",
     "test": "npm run lint",
     "android": "adb reverse tcp:8081 tcp:8081 | react-native run-android",
     "ios": "react-native run-ios"
@@ -21,6 +21,7 @@
     "react-native-branch": "^0.6.0",
     "react-native-communications": "^2.1.0",
     "react-native-contacts": "^0.3.0",
+    "react-native-fabric": "^0.3.0",
     "react-native-router-flux": "^3.35.0",
     "react-native-vector-icons": "^2.1.0",
     "react-redux": "^4.4.5",
