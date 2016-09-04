@@ -1,5 +1,5 @@
 import * as AnalyticsEvents from '../constants/analytics';
-import {Answers} from 'react-native-fabric';
+import {Answers, Crashlytics} from 'react-native-fabric';
 
 /**
  * Logs an event to Answers.
@@ -8,6 +8,11 @@ import {Answers} from 'react-native-fabric';
  */
 export function logEvent (name, customAttributes = null) {
   Answers.logCustom(name, customAttributes);
+}
+
+export function logContentView (...args) {
+  // Usage: logContentView(contentName, contentType, contentId, customAttributes)
+  Answers.logContentView(...args);
 }
 
 export function logAssignment (id) {
