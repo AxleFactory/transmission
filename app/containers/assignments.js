@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import {
   ListView,
+  RefreshControl,
   StyleSheet,
   Text,
   View
@@ -67,18 +68,18 @@ class Assignments extends React.Component {
   render () {
     return (
       <Screen>
-        {this.props.loading &&
-          <View style={styles.centeredContainer}>
-            <Text style={styles.loading}>{I18n.t('general.loading')}</Text>
-          </View>
-        }
-        {!this.props.loading && this.props.assignments.length > 0 &&
-          <ListView
-            style={styles.listView}
-            dataSource={this.state.dataSource}
-            renderRow={assignment => this.renderRow(assignment)}
-          />
-        }
+        <ListView
+          style={styles.listView}
+          dataSource={this.state.dataSource}
+          renderRow={assignment => this.renderRow(assignment)}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.props.loading}
+              // TODO: Initiate data re-fetch
+              // onRefresh={}
+            />
+          }
+        />
         {!this.props.loading && this.props.assignments.length === 0 &&
           <View style={styles.centeredContainer}>
             <Icon name="inbox" size={82} color={Colors.Gray.Light} />
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   centeredContainer: {
+    top: -175,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
