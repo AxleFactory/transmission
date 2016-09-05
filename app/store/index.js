@@ -4,7 +4,7 @@ import * as Types from '../actions/types';
 import createStorageEngine from 'redux-storage-engine-reactnativeasyncstorage';
 import filter from 'redux-storage-decorator-filter';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
+// import createLogger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import asyncMiddleware from './asyncMiddleware';
 import reducers from '../reducers';
@@ -27,9 +27,9 @@ const sagaMiddleware = createSagaMiddleware();
 const createStoreWithMiddelware = applyMiddleware(
   asyncMiddleware,
   sagaMiddleware,
-  createLogger({
-    predicate: () => __DEV__
-  }),
+  // createLogger({
+  //   predicate: () => __DEV__
+  // }),
   thunk,
   storageMiddleware
 )(createStore);
