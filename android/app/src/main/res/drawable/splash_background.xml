@@ -4,7 +4,7 @@
     <item android:drawable="@color/white" />
     <item>
         <bitmap
-            android:src="@mipmap/bernie_logo"
+            android:src="@mipmap/transmission_logo"
             android:gravity="center"
         />
     </item>

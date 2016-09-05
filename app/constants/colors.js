@@ -1,18 +1,18 @@
 const Colors = {
   Blue: {
-    Light: '#2589dc',
-    Normal: '#0478d7'
+    Light: '#F1535E',
+    Normal: '#0ABAB5'
   },
   Gray: {
-    Light: '#d9d9d9',
-    Normal: '#757575',
-    Dark: '#384552'
+    Light: '#D8D4D4',
+    Normal: '#595757',
+    Dark: '#383636'
   },
   Green: {
-    Normal: '#228800'
+    Normal: '#0ABAB5'
   },
   Red: {
-    Light: '#f55b5b'
+    Light: '#F1535E'
   },
   White: '#ffffff'
 };

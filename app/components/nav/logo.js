@@ -8,7 +8,7 @@ import {
 export default function NavLogo () {
   return (
     <Image
-      source={require('../../assets/images/bernie_logo.png')}
+      source={require('../../assets/images/transmission_logo.png')}
       style={styles.logo}
       resizeMode="contain"
     />
@@ -21,7 +21,10 @@ const styles = StyleSheet.create({
     width: 80,
     ...Platform.select({
       ios: {
-        marginTop: 15,
+        marginTop: 17,
+      },
+      android: {
+        marginTop: 4,
       }
     }),
     alignSelf: 'center'
