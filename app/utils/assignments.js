@@ -8,6 +8,6 @@
 import mock from '../../mock/assignments.json';
 export function getAssignments () {
   return new Promise(resolve => {
-    setTimeout(() => resolve(mock), 200);
+    setTimeout(() => resolve(mock), Math.random() * 5000);
   });
 }
