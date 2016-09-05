@@ -1,12 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.transmission">
 
-    <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
-        <intent-filter>
-            <action android:name="com.android.vending.INSTALL_REFERRER" />
-        </intent-filter>
-    </receiver>
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -43,8 +37,19 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
                 <data android:scheme="http" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
@@ -52,6 +57,11 @@
             android:name="io.fabric.ApiKey"
             android:value="${fabricApiKey}" />
         <meta-data android:name="io.branch.sdk.BranchKey" android:value="${branchApiKey}" />
+        <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
