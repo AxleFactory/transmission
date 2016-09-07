@@ -1,4 +1,4 @@
-package com.transmission;
+package org.axlefactory.transmission;
 
 import android.app.Activity;
 

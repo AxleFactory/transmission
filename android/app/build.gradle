@@ -114,7 +114,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.transmission"
+        applicationId "org.axlefactory.transmission"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

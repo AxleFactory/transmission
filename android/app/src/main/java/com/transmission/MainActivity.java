@@ -1,4 +1,4 @@
-package com.transmission;
+package org.axlefactory.transmission;
 
 import com.facebook.react.ReactActivity;
 import com.smixx.fabric.FabricPackage;
