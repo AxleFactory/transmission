@@ -28,6 +28,10 @@ Transmission helps you communicate official calls to action from your organizati
   ```
   npm run android
   ```
+  
+  To run on iOS device
+  
+  [Follow the instructions here](https://facebook.github.io/react-native/releases/0.24/docs/running-on-device-ios.html)
 
 ## Building and signing for app store releases
 
