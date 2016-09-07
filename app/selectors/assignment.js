@@ -2,6 +2,7 @@ import {createSelector} from 'reselect';
 import {transformAssignmentEntity} from '../entities/transformers/assignment';
 import {transformContactEntity} from '../entities/transformers/contact';
 
+const currentUserSelector = state => state.user;
 const assignmentEntitiesSelector = state => state.entities.assignment;
 const contactEntitiesSelector = state => state.entities.contact;
 const selectedAssignmentSelector = state => state.assignment.assignment;
@@ -29,10 +30,12 @@ export const assignmentSelector = createSelector(
   assignmentEntitiesSelector,
   selectedAssignmentSelector,
   contactSelector,
-  (assignmentEntities, selectedAssignment, contact) => {
+  currentUserSelector,
+  (assignmentEntities, selectedAssignment, contact, user) => {
     var assignment = assignmentEntities[selectedAssignment];
     if (assignment) {
-      return transformAssignmentEntity(assignment, contact);
+      console.log('selected!!!', user);
+      return transformAssignmentEntity(assignment, {contact, referralUrl: user.referralUrl});
     }
     return null;
   }

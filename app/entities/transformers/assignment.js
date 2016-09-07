@@ -1,31 +1,40 @@
-const CONTACT_FIRST_NAME_PLACEHOLDER = /\{\{contact\.firstName\}\}/g;
+const placeholders = {
+  firstName: /\{\{contact\.firstName\}\}/g,
+  referralUrl: /\{\{referralUrl\}\}/g
+};
 
-export function transformAssignmentEntity (assignment, contact) {
-  if (!contact) {
+export function transformAssignmentEntity (assignment, substitutions) {
+  if (!substitutions || ! substitutions.contact) {
     return assignment;
   }
 
   return {
     ...assignment,
-    callActions: assignment.callActions.map(transformCallAction(contact)),
-    textActions: assignment.textActions.map(transformTextAction(contact))
+    callActions: assignment.callActions.map(transformCallAction(substitutions)),
+    textActions: assignment.textActions.map(transformTextAction(substitutions))
   };
 }
 
-export function transformCallAction ({firstName}) {
+export function transformCallAction ({contact, referralUrl}) {
   return callAction => ({
     ...callAction,
-    callScript: replaceContactPlaceholder(callAction.callScript, firstName)
+    callScript: replacePlaceholders(callAction.callScript, {firstName: contact.firstName, referralUrl})
   });
 }
 
-export function transformTextAction ({firstName}) {
+export function transformTextAction ({contact, referralUrl}) {
   return textAction => ({
     ...textAction,
-    messageContent: replaceContactPlaceholder(textAction.messageContent, firstName)
+    messageContent: replacePlaceholders(textAction.messageContent, {firstName: contact.firstName, referralUrl})
   });
 }
 
-export function replaceContactPlaceholder (content, substitution) {
-  return content.replace(CONTACT_FIRST_NAME_PLACEHOLDER, substitution);
+export function replacePlaceholders (content, substitutionsObject) {
+  let updatedContent = content;
+  Object.keys(substitutionsObject).forEach(sub => {
+    if (substitutionsObject.hasOwnProperty(sub) && substitutionsObject.hasOwnProperty(sub)) {
+      updatedContent = updatedContent.replace(placeholders[sub], substitutionsObject[sub]);
+    }
+  });
+  return updatedContent;
 }
