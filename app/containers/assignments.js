@@ -75,8 +75,7 @@ class Assignments extends React.Component {
           refreshControl={
             <RefreshControl
               refreshing={this.props.loading}
-              // TODO: Initiate data re-fetch
-              // onRefresh={}
+              onRefresh={this.props.AssignmentActions.getAssignments}
             />
           }
         />
