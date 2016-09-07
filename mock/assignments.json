@@ -1,59 +1,59 @@
 [
    {
       "id":1,
-      "name":"Register Voters - CA",
+      "name":"Register Voters",
       "expires":"2017-01-01T05:00:00.000Z",
-      "description":"Register voters in California",
+      "description":"Register ALL the voters",
       "instructions":"Call first, then send a text!",
       "requireCallFirst":true,
       "callActions":[
          {
             "id":9,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Are you registered to vote in California?"
+            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Are you registered to vote?"
          }
       ],
       "textActions":[
          {
             "id":13,
             "name":"Check your party affiliation",
-            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie!"
+            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before the upcoming election!"
          },
          {
             "id":12,
             "name":"Here's the link",
-            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: https://vote.berniesanders.com/CA"
+            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: http://rockthevote.com"
          }
       ]
    },{
       "id":2,
-      "name":"Inform Voters",
+      "name":"Get Out the Vote",
       "expires":"2017-01-01T05:00:00.000Z",
-      "description":"Inform voters in California",
+      "description":"Change happens from the bottom up.",
       "instructions":"Call first, then send a text!",
       "requireCallFirst":false,
       "callActions":[
          {
             "id":9,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Are you registered to vote in California?"
+            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Are you registered to vote?"
          }
       ],
       "textActions":[
          {
             "id":13,
             "name":"Check your party affiliation",
-            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie!"
+            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before the upcoming election!"
          },
          {
             "id":12,
             "name":"Here's the link",
-            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: https://vote.berniesanders.com/CA"
+            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: http://rockthevote.com"
          }
       ]
    },{
       "id":3,
-      "name":"Spread the Word",
+      "name":"Spread the Word via Text",
       "expires":"2017-01-01T05:00:00.000Z",
       "description":"This is important.",
       "instructions":"Send as many texts as you can!",
@@ -63,12 +63,12 @@
          {
             "id":13,
             "name":"Check your party affiliation",
-            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie!"
+            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie! {{referralUrl}}"
          },
          {
             "id":12,
             "name":"Here's the link",
-            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: https://vote.berniesanders.com/CA"
+            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: {{referralUrl}}"
          }
       ]
    },{
@@ -83,13 +83,23 @@
             "id":10,
             "name":"Are you registered?",
             "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Have you registered to vote?"
-         },
-         {
-            "id":11,
-            "name":"Have you voted?",
-            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Have you voted today?"
          }
       ],
       "textActions":[]
-   }
+   },{
+      "id":5,
+      "name":"Invite Friends to Install Transmission",
+      "expires":"2017-01-01T05:00:00.000Z",
+      "description":"Let's employ the snowball effect...",
+      "instructions":"Send as many texts as you can!",
+      "requireCallFirst":false,
+      "callActions":[],
+      "textActions":[
+         {
+            "id":14,
+            "name":"Send Transmission Invite",
+            "messageContent":"Hey {{contact.firstName}}, check out this cool app! {{referralUrl}}"
+         }
+      ]
+   },
 ]
