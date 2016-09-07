@@ -10,7 +10,7 @@ export function getAssignments () {
 
 export function selectAssignment (assignment) {
   return {
-    type: Types.SELECT_ASSIGNMENT,
+    type: Types.VIEW_ASSIGNMENT,
     assignment
   };
 }

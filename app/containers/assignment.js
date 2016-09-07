@@ -29,7 +29,7 @@ class Assignment extends React.Component {
   };
 
   componentDidMount () {
-    Analytics.logAssignment(this.props.assignment.id);
+    Analytics.logAssignment(this.props.assignment);
   }
 
   componentWillUnmount () {

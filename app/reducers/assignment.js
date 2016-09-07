@@ -8,7 +8,7 @@ const initialState = {
 
 export default function assignmentReducer (state = initialState, action) {
   switch (action.type) {
-    case Type.SELECT_ASSIGNMENT:
+    case Type.VIEW_ASSIGNMENT:
       return {
         ...state,
         assignment: action.assignment

@@ -1,6 +1,6 @@
 // Assignments
 export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS';
-export const SELECT_ASSIGNMENT = 'SELECT_ASSIGNMENT';
+export const VIEW_ASSIGNMENT = 'VIEW_ASSIGNMENT';
 export const RESET_ASSIGNMENT = 'RESET_ASSIGNMENT';
 
 // Contacts

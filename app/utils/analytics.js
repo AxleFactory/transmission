@@ -2,6 +2,8 @@ import * as AnalyticsEvents from '../constants/analytics';
 import {Answers} from 'react-native-fabric';
 import branch from 'react-native-branch';
 
+const assignmentId = (id) => `assignment-${id}`;
+
 /**
  * Logs an event to Answers.
  * NOTE: Must cast numbers as strings, or otherwise the analytics will
@@ -16,10 +18,9 @@ export function logContentView (...args) {
   Answers.logContentView(...args);
 }
 
-export function logAssignment (id) {
-  logEvent(AnalyticsEvents.SELECT_ASSIGNMENT, {
-    'Assignment ID': String(id)
-  });
+export function logAssignment (assignment) {
+  const {id, name} = assignment;
+  logContentView(String(name), 'Assignment', assignmentId(id));
 }
 
 export function logTextAction (assignmentId, actionId) {
