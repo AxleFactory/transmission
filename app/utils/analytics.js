@@ -5,6 +5,7 @@ import branch from 'react-native-branch';
 const assignmentId = (id) => `assignment-${id}`;
 const textActionId = (id) => `text-action-${id}`;
 const callActionId = (id) => `call-action-${id}`;
+const branchUniversalObject = branch.createBranchUniversalObject('transmission');
 
 /**
  * Logs an event to Answers.
@@ -44,3 +45,9 @@ export function logCallAction (assignment, action) {
     'Call Action Name': String(action.name)
   });
 }
+
+export const getBranchReferralLink = () => branchUniversalObject.generateShortUrl({
+  feature: 'referral',
+  // alias: null,
+  channel: 'In-App Invite'
+});
