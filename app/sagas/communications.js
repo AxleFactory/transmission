@@ -9,9 +9,9 @@ import Communications from 'react-native-communications';
 const {CommunicationsModule} = NativeModules;
 
 export function* callContact ({callAction}) {
-  var contact = yield select(contactSelector);
-  var assignment = yield select(assignmentSelector);
-  yield call(Analytics.logCallAction, assignment.id, callAction);
+  const contact = yield select(contactSelector);
+  const assignment = yield select(assignmentSelector);
+  yield call(Analytics.logCallAction, assignment, callAction);
   if (Platform.OS === 'ios') {
     yield Communications.phonecall(String(contact.phoneNumber), false);
   } else {
@@ -20,12 +20,12 @@ export function* callContact ({callAction}) {
 }
 
 export function* textContact ({textAction}) {
-  var contact = yield select(contactSelector);
-  var assignment = yield select(assignmentSelector);
-  var {textActions} = assignment;
-  var textActionMatch = textActions.filter(text => text.id === textAction);
-  var message = textActionMatch.length > 0 ? textActionMatch[0].messageContent : textActions[0].messageContent;
-  yield call(Analytics.logTextAction, assignment.id, textAction);
+  const contact = yield select(contactSelector);
+  const assignment = yield select(assignmentSelector);
+  const {textActions} = assignment;
+  const textActionMatch = textActions.filter(text => text.id === textAction);
+  const message = textActionMatch.length > 0 ? textActionMatch[0].messageContent : textActions[0].messageContent;
+  yield call(Analytics.logTextAction, assignment, textActionMatch[0]);
   if (Platform.OS === 'ios') {
     yield Communications.text(String(contact.phoneNumber), message);
   } else {

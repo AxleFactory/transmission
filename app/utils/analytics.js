@@ -3,6 +3,8 @@ import {Answers} from 'react-native-fabric';
 import branch from 'react-native-branch';
 
 const assignmentId = (id) => `assignment-${id}`;
+const textActionId = (id) => `text-action-${id}`;
+const callActionId = (id) => `call-action-${id}`;
 
 /**
  * Logs an event to Answers.
@@ -23,18 +25,22 @@ export function logAssignment (assignment) {
   logContentView(String(name), 'Assignment', assignmentId(id));
 }
 
-export function logTextAction (assignmentId, actionId) {
+export function logTextAction (assignment, action) {
   branch.userCompletedAction(AnalyticsEvents.TEXT_CONTACT);
   logEvent(AnalyticsEvents.TEXT_CONTACT, {
-    'Assignment ID': String(assignmentId),
-    'Text Action ID': String(actionId)
+    'Assignment ID': assignmentId(assignment.id),
+    'Assignment Name': String(assignment.name),
+    'Text Action ID': textActionId(action.id),
+    'Text Action Name': String(action.name)
   });
 }
 
-export function logCallAction (assignmentId, actionId) {
+export function logCallAction (assignment, action) {
   branch.userCompletedAction(AnalyticsEvents.CALL_CONTACT);
   logEvent(AnalyticsEvents.CALL_CONTACT, {
-    'Assignment ID': String(assignmentId),
-    'Call Action ID': String(actionId)
+    'Assignment ID': assignmentId(assignment.id),
+    'Assignment Name': String(assignment.name),
+    'Call Action ID': callActionId(action.id),
+    'Call Action Name': String(action.name)
   });
 }

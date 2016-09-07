@@ -37,11 +37,11 @@ class Call extends React.Component {
     }
   }
 
-  renderRow ({id: callId, name, callScript}) {
+  renderRow ({id, name, callScript}) {
     var {assignment, contact} = this.props;
     return (
       <TaskRow
-        onPress={() => this.props.AssignmentActions.callContact(contact.id, assignment.id, callId)}
+        onPress={() => this.props.AssignmentActions.callContact(contact.id, assignment, {id, name})}
         title={name}
         message={callScript}
       />
