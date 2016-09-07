@@ -39,14 +39,13 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="http" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+                <data android:scheme="http" android:host="transmissionapp.jacoblegrone.com" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" android:pathPrefix="/nvSs" />
+                <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
