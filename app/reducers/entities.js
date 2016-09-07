@@ -12,8 +12,8 @@ const actionTypeToSchema = {
 };
 
 export default function entityReducer (state = initialState, action) {
-  var entityType = actionTypeToSchema[action.type];
-  var entities = {};
+  const entityType = actionTypeToSchema[action.type];
+  let entities = {};
   if (!entityType || action.status !== 'success') {
     return state;
   }
