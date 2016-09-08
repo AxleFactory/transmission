@@ -12,7 +12,7 @@ export function* loadAssignments () {
   yield put(AssignmentActions.getAssignments());
 }
 
-export function* loadReferralUrl () {
+export function* loadUser () {
   yield put(UserActions.getReferralUrl());
 }
 
@@ -20,7 +20,7 @@ export function* initialize () {
   yield [
     fork(loadContacts),
     fork(loadAssignments),
-    fork(loadReferralUrl)
+    fork(loadUser)
   ];
 }
 
