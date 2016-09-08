@@ -10,7 +10,7 @@
          {
             "id":9,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Are you registered to vote?"
+            "callScript":"Hello {{contact.firstName}}! Are you registered to vote?"
          }
       ],
       "textActions":[
@@ -36,7 +36,7 @@
          {
             "id":9,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Are you registered to vote?"
+            "callScript":"Hello {{contact.firstName}}! Are you registered to vote?"
          }
       ],
       "textActions":[
@@ -82,7 +82,7 @@
          {
             "id":10,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}, this is {{user.firstName}}.  Have you registered to vote?"
+            "callScript":"Hello {{contact.firstName}}! Have you registered to vote?"
          }
       ],
       "textActions":[]
