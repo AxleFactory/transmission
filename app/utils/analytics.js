@@ -1,5 +1,5 @@
 import * as AnalyticsEvents from '../constants/analytics';
-import {Answers} from 'react-native-fabric';
+import {Answers, Crashlytics} from 'react-native-fabric';
 import branch from 'react-native-branch';
 import {Alert} from 'react-native';
 
@@ -11,7 +11,7 @@ const branchUniversalObject = branch.createBranchUniversalObject('transmission')
 // Listen for app opens resulting from external links
 branch.subscribe(({params}) => {
   if (params && params.email) {
-    setIdentity(params.email);
+    setUserEmail(params.email);
     Alert.alert(
       'Email Updated!',
       `You are logged in as ${params.email}.`,
@@ -64,4 +64,7 @@ export const getBranchReferralLink = () => branchUniversalObject.generateShortUr
   channel: 'In-App Invite'
 });
 
-export const setIdentity = (identity) => branch.setIdentity(identity);
+export const setUserEmail = email => {
+  branch.setIdentity(email);
+  Crashlytics.setUserEmail(email);
+};
