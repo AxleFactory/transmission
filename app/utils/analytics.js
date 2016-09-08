@@ -2,6 +2,7 @@ import * as AnalyticsEvents from '../constants/analytics';
 import {Answers, Crashlytics} from 'react-native-fabric';
 import Branch from 'react-native-branch';
 import {Alert, Platform} from 'react-native';
+import I18n from '../localization';
 
 const assignmentId = (id) => `assignment-${id}`;
 const textActionId = (id) => `text-action-${id}`;
@@ -14,8 +15,8 @@ Branch.subscribe(({params, error, uri}) => {
     if (params.email) {
       setUserEmail(params.email);
       Alert.alert(
-        'Email Updated!',
-        `You are logged in as ${params.email}.`,
+        I18n.t('user.loggedInTitle'),
+        I18n.t('user.loggedInMessage', {email: params.email}),
       );
     }
     logEvent(AnalyticsEvents.OPEN_BRANCH_LINK, params);
