@@ -1,21 +1,29 @@
 import * as AnalyticsEvents from '../constants/analytics';
 import {Answers, Crashlytics} from 'react-native-fabric';
-import branch from 'react-native-branch';
-import {Alert} from 'react-native';
+import Branch from 'react-native-branch';
+import {Alert, Platform} from 'react-native';
 
 const assignmentId = (id) => `assignment-${id}`;
 const textActionId = (id) => `text-action-${id}`;
 const callActionId = (id) => `call-action-${id}`;
-const branchUniversalObject = branch.createBranchUniversalObject('transmission');
+const branchUniversalObject = Branch.createBranchUniversalObject('transmission');
 
 // Listen for app opens resulting from external links
-branch.subscribe(({params}) => {
-  if (params && params.email) {
-    setUserEmail(params.email);
-    Alert.alert(
-      'Email Updated!',
-      `You are logged in as ${params.email}.`,
-    );
+Branch.subscribe(({params, error, uri}) => {
+  if (params) {
+    if (params.email) {
+      setUserEmail(params.email);
+      Alert.alert(
+        'Email Updated!',
+        `You are logged in as ${params.email}.`,
+      );
+    }
+    logEvent(AnalyticsEvents.OPEN_BRANCH_LINK, params);
+  } else {
+    logEvent(AnalyticsEvents.OPEN_APP_LINK, {uri});
+  }
+  if (error) {
+    logError(error);
   }
 });
 
@@ -26,6 +34,14 @@ branch.subscribe(({params}) => {
  */
 export function logEvent (name, customAttributes = null) {
   Answers.logCustom(name, customAttributes);
+}
+
+export function logError (message) {
+  if (Platform.OS === 'android') {
+    Crashlytics.logException(message);
+  } else {
+    Crashlytics.recordError(message);
+  }
 }
 
 export function logContentView (...args) {
@@ -39,7 +55,7 @@ export function logAssignment (assignment) {
 }
 
 export function logTextAction (assignment, action) {
-  branch.userCompletedAction(AnalyticsEvents.TEXT_CONTACT);
+  Branch.userCompletedAction(AnalyticsEvents.TEXT_CONTACT);
   logEvent(AnalyticsEvents.TEXT_CONTACT, {
     'Assignment ID': assignmentId(assignment.id),
     'Assignment Name': String(assignment.name),
@@ -49,7 +65,7 @@ export function logTextAction (assignment, action) {
 }
 
 export function logCallAction (assignment, action) {
-  branch.userCompletedAction(AnalyticsEvents.CALL_CONTACT);
+  Branch.userCompletedAction(AnalyticsEvents.CALL_CONTACT);
   logEvent(AnalyticsEvents.CALL_CONTACT, {
     'Assignment ID': assignmentId(assignment.id),
     'Assignment Name': String(assignment.name),
@@ -65,6 +81,6 @@ export const getBranchReferralLink = () => branchUniversalObject.generateShortUr
 });
 
 export const setUserEmail = email => {
-  branch.setIdentity(email);
+  Branch.setIdentity(email);
   Crashlytics.setUserEmail(email);
 };
