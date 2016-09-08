@@ -7,11 +7,12 @@
       "byline": "Select a contact"
     },
     "call": {
-      "title": "Call Person"
+      "title": "Call {{contactName}}"
     },
     "text": {
-      "title": "Text Person",
+      "title": "Text {{contactName}}",
       "select": "Select a text"
     }
-  }
+  },
+  "nameFallback": "Person"
 }
