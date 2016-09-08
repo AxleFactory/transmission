@@ -1,11 +1,23 @@
 import * as AnalyticsEvents from '../constants/analytics';
 import {Answers} from 'react-native-fabric';
 import branch from 'react-native-branch';
+import {Alert} from 'react-native';
 
 const assignmentId = (id) => `assignment-${id}`;
 const textActionId = (id) => `text-action-${id}`;
 const callActionId = (id) => `call-action-${id}`;
 const branchUniversalObject = branch.createBranchUniversalObject('transmission');
+
+// Listen for app opens resulting from external links
+branch.subscribe(({params}) => {
+  if (params && params.email) {
+    setIdentity(params.email);
+    Alert.alert(
+      'Email Updated!',
+      `You are logged in as ${params.email}.`,
+    );
+  }
+});
 
 /**
  * Logs an event to Answers.
@@ -51,3 +63,5 @@ export const getBranchReferralLink = () => branchUniversalObject.generateShortUr
   // alias: null,
   channel: 'In-App Invite'
 });
+
+export const setIdentity = (identity) => branch.setIdentity(identity);
