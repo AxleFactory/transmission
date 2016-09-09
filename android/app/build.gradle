@@ -76,6 +76,7 @@ buildscript {
 
 apply from: "../../node_modules/react-native/react.gradle"
 apply plugin: 'io.fabric'
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -170,6 +171,7 @@ afterEvaluate {
 }
 
 dependencies {
+    compile project(':react-native-config')
     compile project(':react-native-fabric')
     compile project(':react-native-contacts')
     compile project(':react-native-vector-icons')

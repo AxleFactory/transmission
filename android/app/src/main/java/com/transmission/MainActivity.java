@@ -17,6 +17,7 @@ import com.crashlytics.android.answers.Answers;
 import io.fabric.sdk.android.Fabric;
 import io.branch.rnbranch.*;
 import android.content.Intent;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -77,7 +78,8 @@ public class MainActivity extends ReactActivity {
             new NativePackages(this),
             new ReactNativeContacts(),
             new VectorIconsPackage(),
-            new RNBranchPackage()
+            new RNBranchPackage(),
+            new ReactNativeConfigPackage()
         );
     }
 }
