@@ -3170,6 +3170,11 @@
       "from": "react-native-communications@>=2.1.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/react-native-communications/-/react-native-communications-2.1.0.tgz"
     },
+    "react-native-config": {
+      "version": "0.0.8",
+      "from": "react-native-config@latest",
+      "resolved": "https://registry.npmjs.org/react-native-config/-/react-native-config-0.0.8.tgz"
+    },
     "react-native-contacts": {
       "version": "0.3.0",
       "from": "react-native-contacts@>=0.3.0 <0.4.0",
