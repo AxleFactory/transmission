@@ -34,7 +34,6 @@ export const assignmentSelector = createSelector(
   (assignmentEntities, selectedAssignment, contact, user) => {
     var assignment = assignmentEntities[selectedAssignment];
     if (assignment) {
-      console.log('selected!!!', user);
       return transformAssignmentEntity(assignment, {contact, referralUrl: user.referralUrl});
     }
     return null;
