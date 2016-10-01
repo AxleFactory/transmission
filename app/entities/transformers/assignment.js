@@ -1,7 +1,4 @@
-const placeholders = {
-  firstName: /\{\{contact\.firstName\}\}/g,
-  referralUrl: /\{\{referralUrl\}\}/g
-};
+import {render} from 'mustache';
 
 export function transformAssignmentEntity (assignment, substitutions) {
   if (!substitutions || ! substitutions.contact) {
@@ -15,26 +12,16 @@ export function transformAssignmentEntity (assignment, substitutions) {
   };
 }
 
-export function transformCallAction ({contact, referralUrl}) {
+function transformCallAction (params) {
   return callAction => ({
     ...callAction,
-    callScript: replacePlaceholders(callAction.callScript, {firstName: contact.firstName, referralUrl})
+    callScript: render(callAction.callScript, params)
   });
 }
 
-export function transformTextAction ({contact, referralUrl}) {
+function transformTextAction (params) {
   return textAction => ({
     ...textAction,
-    messageContent: replacePlaceholders(textAction.messageContent, {firstName: contact.firstName, referralUrl})
+    messageContent: render(textAction.messageContent, params)
   });
-}
-
-export function replacePlaceholders (content, substitutionsObject) {
-  let updatedContent = content;
-  Object.keys(substitutionsObject).forEach(sub => {
-    if (substitutionsObject.hasOwnProperty(sub) && substitutionsObject.hasOwnProperty(sub)) {
-      updatedContent = updatedContent.replace(placeholders[sub], substitutionsObject[sub]);
-    }
-  });
-  return updatedContent;
 }
