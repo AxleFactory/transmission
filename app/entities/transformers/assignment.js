@@ -1,4 +1,5 @@
-import {render} from 'mustache';
+import mustache from 'mustache';
+mustache.escape = (value) => value;  // override mustache's escape function to allow unescaped URLs
 
 export function transformAssignmentEntity (assignment, substitutions) {
   if (!substitutions || ! substitutions.contact) {
@@ -15,13 +16,13 @@ export function transformAssignmentEntity (assignment, substitutions) {
 function transformCallAction (params) {
   return callAction => ({
     ...callAction,
-    callScript: render(callAction.callScript, params)
+    callScript: mustache.render(callAction.callScript, params)
   });
 }
 
 function transformTextAction (params) {
   return textAction => ({
     ...textAction,
-    messageContent: render(textAction.messageContent, params)
+    messageContent: mustache.render(textAction.messageContent, params)
   });
 }
