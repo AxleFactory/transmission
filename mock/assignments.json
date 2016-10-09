@@ -10,19 +10,19 @@
          {
             "id":9,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}! Are you registered to vote?"
+            "callScript":"Hello {{{contact.firstName}}}! Are you registered to vote?"
          }
       ],
       "textActions":[
          {
             "id":13,
             "name":"Check your party affiliation",
-            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before the upcoming election!"
+            "messageContent":"Hey {{{contact.firstName}}} -- since you're already registered, be sure to check your affiliation before the upcoming election!"
          },
          {
             "id":12,
             "name":"Here's the link",
-            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: http://rockthevote.com"
+            "messageContent":"Hey {{{contact.firstName}}} -- here's that voter registration link: http://rockthevote.com"
          }
       ]
    },{
@@ -36,19 +36,19 @@
          {
             "id":9,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}! Are you registered to vote?"
+            "callScript":"Hello {{{contact.firstName}}}! Are you registered to vote?"
          }
       ],
       "textActions":[
          {
             "id":13,
             "name":"Check your party affiliation",
-            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before the upcoming election!"
+            "messageContent":"Hey {{{contact.firstName}}} -- since you're already registered, be sure to check your affiliation before the upcoming election!"
          },
          {
             "id":12,
             "name":"Here's the link",
-            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: http://rockthevote.com"
+            "messageContent":"Hey {{{contact.firstName}}} -- here's that voter registration link: http://rockthevote.com"
          }
       ]
    },{
@@ -63,12 +63,12 @@
          {
             "id":13,
             "name":"Check your party affiliation",
-            "messageContent":"Hey {{contact.firstName}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie! {{referralUrl}}"
+            "messageContent":"Hey {{{contact.firstName}}} -- since you're already registered, be sure to check your affiliation before May 23rd to vote for Bernie! {{{referralUrl}}}"
          },
          {
             "id":12,
             "name":"Here's the link",
-            "messageContent":"Hey {{contact.firstName}} -- here's that voter registration link: {{referralUrl}}"
+            "messageContent":"Hey {{{contact.firstName}}} -- here's that voter registration link: {{{referralUrl}}}"
          }
       ]
    },{
@@ -82,7 +82,7 @@
          {
             "id":10,
             "name":"Are you registered?",
-            "callScript":"Hello {{contact.firstName}}! Have you registered to vote?"
+            "callScript":"Hello {{{contact.firstName}}}! Have you registered to vote?"
          }
       ],
       "textActions":[]
@@ -98,7 +98,7 @@
          {
             "id":14,
             "name":"Send Transmission Invite",
-            "messageContent":"Hey {{contact.firstName}}, check out this cool app! {{referralUrl}}"
+            "messageContent":"Hey {{{contact.firstName}}}, check out this cool app! {{{referralUrl}}}"
          }
       ]
    },
