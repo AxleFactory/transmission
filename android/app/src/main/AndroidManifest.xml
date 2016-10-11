@@ -11,12 +11,12 @@
 
     <application
       android:allowBackup="true"
-      android:label="@string/app_name"
+      android:label="@string/EXECUTABLE_NAME"
       android:icon="@mipmap/app_icon"
       android:theme="@style/SplashTheme">
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name"
+            android:label="@string/EXECUTABLE_NAME"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,23 +27,23 @@
             android:name=".MainActivity"
             android:launchMode="singleTask"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="@string/EXECUTABLE_NAME"
             android:theme="@style/AppTheme"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
             <intent-filter>
-                <data android:scheme="axlefactorytransmission" android:host="open" />
+                <data android:scheme="@string/APP_LINK_SCHEME" android:host="open" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="http" android:host="transmissionapp.jacoblegrone.com" />
+                <data android:scheme="http" android:host="@string/BRANCH_LINK_DOMAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="https" android:host="transmissionapp.jacoblegrone.com" />
+                <data android:scheme="https" android:host="@string/BRANCH_LINK_DOMAIN" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />

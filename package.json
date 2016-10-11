@@ -8,7 +8,8 @@
     "test": "npm run lint",
     "android": "adb reverse tcp:8081 tcp:8081 | react-native run-android",
     "android-release": "react-native run-android --variant=release",
-    "ios": "react-native run-ios"
+    "ios": "react-native run-ios",
+    "gen-env": "cp sample.env .env"
   },
   "dependencies": {
     "google-libphonenumber": "^1.1.0",
@@ -22,6 +23,7 @@
     "react-native-alphabetlistview": "^0.2.0",
     "react-native-branch": "^0.6.0",
     "react-native-communications": "^2.1.0",
+    "react-native-config": "0.0.8",
     "react-native-contacts": "^0.3.0",
     "react-native-fabric": "^0.3.0",
     "react-native-router-flux": "^3.35.0",
