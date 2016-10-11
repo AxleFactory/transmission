@@ -1,20 +1,22 @@
+import Config from 'react-native-config'
+
 const Colors = {
   Blue: {
-    Light: '#F1535E',
-    Normal: '#0ABAB5'
+    Light: Config.LIGHT_BLUE,
+    Normal: Config.BLUE,
   },
   Gray: {
-    Light: '#D8D4D4',
-    Normal: '#595757',
-    Dark: '#383636'
+    Light: Config.LIGHT_GRAY,
+    Normal: Config.GRAY,
+    Dark: Config.DARK_GRAY,
   },
   Green: {
-    Normal: '#0ABAB5'
+    Normal: Config.GREEN,
   },
   Red: {
-    Light: '#F1535E'
+    Light: Config.LIGHT_RED,
   },
-  White: '#ffffff'
+  White: Config.WHITE,
 };
 
 export default Colors;
