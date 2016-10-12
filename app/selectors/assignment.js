@@ -3,6 +3,7 @@ import {transformAssignmentEntity} from '../entities/transformers/assignment';
 import {transformContactEntity} from '../entities/transformers/contact';
 
 const currentUserSelector = state => state.user;
+const tagsSelector = state => state.tags;
 const assignmentEntitiesSelector = state => state.entities.assignment;
 const contactEntitiesSelector = state => state.entities.contact;
 const selectedAssignmentSelector = state => state.assignment.assignment;
@@ -31,10 +32,12 @@ export const assignmentSelector = createSelector(
   selectedAssignmentSelector,
   contactSelector,
   currentUserSelector,
-  (assignmentEntities, selectedAssignment, contact, user) => {
+  tagsSelector,
+  (assignmentEntities, selectedAssignment, contact, user, tags) => {
     var assignment = assignmentEntities[selectedAssignment];
     if (assignment) {
-      return transformAssignmentEntity(assignment, {contact, referralUrl: user.referralUrl});
+      console.log({...user, ...tags});
+      return transformAssignmentEntity(assignment, {...tags, ...user, contact});
     }
     return null;
   }

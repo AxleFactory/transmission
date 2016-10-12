@@ -16,9 +16,10 @@ const reducer = combineReducers(reducers);
 // compose the storage engine
 const storageWrappedReducers = storage.reducer(reducer);
 const engine = filter(createStorageEngine('state'), [
-  'assignmentHistory'
+  'assignmentHistory',
+  'tags',
 ]);
-const storageMiddleware = storage.createMiddleware(engine, [], [Types.CALL_CONTACT, Types.TEXT_CONTACT]);
+const storageMiddleware = storage.createMiddleware(engine, [], [Types.CALL_CONTACT, Types.TEXT_CONTACT, Types.SET_TAGS]);
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

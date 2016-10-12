@@ -4,6 +4,7 @@ import assignmentHistory from './assignmentHistory';
 import entities from './entities';
 import routes from './routes';
 import user from './user';
+import tags from './tags';
 
 export default {
   assignment,
@@ -11,5 +12,6 @@ export default {
   assignmentHistory,
   entities,
   user,
+  tags,
   routes
 };

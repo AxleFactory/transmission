@@ -1,8 +1,10 @@
 import * as AnalyticsEvents from '../constants/analytics';
-import {Answers, Crashlytics} from 'react-native-fabric';
+import { Answers, Crashlytics } from 'react-native-fabric';
 import Branch from 'react-native-branch';
-import {Alert, Platform} from 'react-native';
+import { Alert, Platform } from 'react-native';
 import I18n from '../localization';
+import * as TagActions from '../actions/tags';
+import store from '../store';
 
 const assignmentId = (id) => `assignment-${id}`;
 const textActionId = (id) => `text-action-${id}`;
@@ -12,6 +14,7 @@ const branchUniversalObject = Branch.createBranchUniversalObject('transmission')
 // Listen for app opens resulting from external links
 Branch.subscribe(({params, error, uri}) => {
   if (params) {
+    store.dispatch(TagActions.setTags(params));
     if (params.email) {
       setUserEmail(params.email);
       Alert.alert(
@@ -33,11 +36,11 @@ Branch.subscribe(({params, error, uri}) => {
  * NOTE: Must cast numbers as strings, or otherwise the analytics will
  * display them in a graph, rather than a table
  */
-export function logEvent (name, customAttributes = null) {
+export function logEvent(name, customAttributes = null) {
   Answers.logCustom(name, customAttributes);
 }
 
-export function logError (message) {
+export function logError(message) {
   if (Platform.OS === 'android') {
     Crashlytics.logException(message);
   } else {
@@ -45,17 +48,17 @@ export function logError (message) {
   }
 }
 
-export function logContentView (...args) {
+export function logContentView(...args) {
   // Usage: logContentView(contentName, contentType, contentId, customAttributes)
   Answers.logContentView(...args);
 }
 
-export function logAssignment (assignment) {
+export function logAssignment(assignment) {
   const {id, name} = assignment;
   logContentView(String(name), 'Assignment', assignmentId(id));
 }
 
-export function logTextAction (assignment, action) {
+export function logTextAction(assignment, action) {
   Branch.userCompletedAction(AnalyticsEvents.TEXT_CONTACT);
   logEvent(AnalyticsEvents.TEXT_CONTACT, {
     'Assignment ID': assignmentId(assignment.id),
@@ -65,7 +68,7 @@ export function logTextAction (assignment, action) {
   });
 }
 
-export function logCallAction (assignment, action) {
+export function logCallAction(assignment, action) {
   Branch.userCompletedAction(AnalyticsEvents.CALL_CONTACT);
   logEvent(AnalyticsEvents.CALL_CONTACT, {
     'Assignment ID': assignmentId(assignment.id),

@@ -13,3 +13,6 @@ export const TEXT_CONTACT = 'TEXT_CONTACT';
 
 // User
 export const GET_REFERRAL_URL = 'GET_REFERRAL_URL';
+
+// Tags
+export const SET_TAGS = 'SET_TAGS';

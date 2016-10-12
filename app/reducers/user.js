@@ -2,7 +2,7 @@ import {GET_REFERRAL_URL} from '../actions/types';
 
 const initialState = {};
 
-export default function assignmentsReducer (state = initialState, action) {
+export default function userReducer (state = initialState, action) {
   if (action.type !== GET_REFERRAL_URL) {
     return state;
   }
